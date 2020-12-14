@@ -25,7 +25,7 @@ class RevendaMelhorPrecoTag extends StatelessWidget {
             size: 19,
           ),
           Text(
-            'Melhor Preço',
+            'Best Price',
               style: StylesRevenda.priceTagStyle
           ),
         ],

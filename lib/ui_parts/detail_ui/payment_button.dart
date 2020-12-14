@@ -9,17 +9,17 @@ class PaymentButton extends StatelessWidget {
       width: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: Colors.orangeAccent,
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomCenter,
-          colors: [Colors.blue[200], Colors.blue[700]],
-        ),
+        color: Colors.blueAccent,
+        // gradient: LinearGradient(
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomCenter,
+        //   //colors: [Colors.blue[200], Colors.blue[700]],
+        // ),
       ),
       margin: EdgeInsets.only(bottom: 20),
       child: Center(
         child: Text(
-          'IR PARA O PAGAMENTO',
+          'GO TO PAYMENT',
           style: StylesRevenda.paymentDetailStyle,
         ),
       ),

@@ -1,5 +1,4 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:desafio_revenda_app/routers/router.gr.dart';
+import 'package:desafio_revenda_app/pages/revenda_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/revenda_home_page.dart';
 
@@ -18,9 +17,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: RevendaHomePage(),
-      builder: ExtendedNavigator<Router>(
-        router: Router(),
-      ),
+      routes: {
+        '/detail': (_) => RevendaDetailPage(),
+      }
+      // builder: ExtendedNavigator<Router>(
+      //   router: Router(),
+      // ),
     );
   }
 }

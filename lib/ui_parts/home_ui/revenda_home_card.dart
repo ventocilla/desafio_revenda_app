@@ -1,4 +1,5 @@
-import 'package:desafio_revenda_app/routers/router.gr.dart';
+import 'package:desafio_revenda_app/pages/revenda_detail_page.dart';
+//import 'package:desafio_revenda_app/routers/router.gr.dart';
 import 'package:desafio_revenda_app/themes/stylesRevenda.dart';
 import 'package:flutter/material.dart';
 import 'revenda_melhor_preco_tag.dart';
@@ -12,19 +13,24 @@ class RevendaCard extends StatelessWidget {
   final bool melhorPreco;
   final double preco;
 
-  RevendaCard(
-      {this.tipo,
-      this.nome,
-      this.cor,
-      this.nota,
-      this.tempoMedio,
-      this.melhorPreco,
-      this.preco});
+  RevendaCard({this.tipo, this.nome, this.cor, this.nota, this.tempoMedio, this.melhorPreco, this.preco});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+          return RevendaDetailPage(
+            tipo: tipo,
+            nome: nome,
+            nota: nota,
+            tempoMedio: tempoMedio,
+            preco: preco,
+          );
+        }));
+        // RevendaDetailPage
+        // - - -
+        /*
         Navigator.of(context).pushNamed(
           Routes.revendaDetailPage,
           arguments: RevendaDetailPageArguments(
@@ -35,6 +41,7 @@ class RevendaCard extends StatelessWidget {
             preco: preco,
           ),
         );
+        */
       },
       child: Column(
         children: <Widget>[
@@ -99,10 +106,7 @@ class RevendaCard extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  'Nota',
-                                  style: StylesRevenda.cardSpecStyle
-                                ),
+                                Text('Grade', style: StylesRevenda.cardSpecStyle),
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -111,7 +115,7 @@ class RevendaCard extends StatelessWidget {
                                     ),
                                     Icon(
                                       Icons.star,
-                                      color: Colors.yellow,
+                                      color: Colors.orange,
                                     ),
                                   ],
                                 ),
@@ -120,29 +124,22 @@ class RevendaCard extends StatelessWidget {
                             Column(
                               children: <Widget>[
                                 Text(
-                                  'Tempo Medio',
+                                  'Average time',
                                   style: StylesRevenda.cardSpecStyle,
                                 ),
                                 Text.rich(
-                                  TextSpan(
-                                      text: tempoMedio,
-                                      style: StylesRevenda.cardSpecDurationLabelStyle,
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                            text: ' min',
-                                            style: StylesRevenda.cardSpecDurationValueStyle
-                                        )
-                                      ]),
+                                  TextSpan(text: tempoMedio, style: StylesRevenda.cardSpecDurationLabelStyle, children: <TextSpan>[TextSpan(text: ' min', style: StylesRevenda.cardSpecDurationValueStyle)]),
                                 ),
                               ],
                             ),
                             Column(
                               children: <Widget>[
-                                Text('Preço',
-                                    style: StylesRevenda.cardSpecStyle,
+                                Text(
+                                  'Price',
+                                  style: StylesRevenda.cardSpecStyle,
                                 ),
                                 Text(
-                                  'R\$ ${preco.toStringAsFixed(2)}',
+                                  'CA\$ ${preco.toStringAsFixed(2)}',
                                   style: StylesRevenda.cardSpecDurationLabelStyle,
                                 ),
                               ],

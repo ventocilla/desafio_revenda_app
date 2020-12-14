@@ -3,7 +3,7 @@ import 'revenda_home_card.dart';
 
 class RevendaBody extends StatelessWidget {
   final List revendas;
-  const RevendaBody({@required this.revendas,});
+  const RevendaBody({this.revendas,});
 
   @override
   Widget build(BuildContext context) {

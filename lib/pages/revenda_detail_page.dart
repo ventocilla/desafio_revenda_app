@@ -45,20 +45,20 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Selecionar Produtos'),
+        title: Text('Select Products'),
         centerTitle: true,
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Align(
-              alignment: Alignment.center,
-              child: Text(
-                '?',
-                style: TextStyle(fontSize: 30),
-              ),
-            ),
-          )
-        ],
+        // actions: <Widget>[
+        //   Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: Align(
+        //       alignment: Alignment.center,
+        //       child: Text(
+        //         '?',
+        //         style: TextStyle(fontSize: 30),
+        //       ),
+        //     ),
+        //   )
+        // ],
       ),
       body: detailBody(),
     );
@@ -88,10 +88,9 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
             child: Row(
               children: <Widget>[
                 CircleAvatar(
-                  child: Text('${qty.toString()}',
-                      style: StylesRevenda.detailQtyResumeStyle),
+                  child: Text('${qty.toString()}', style: StylesRevenda.detailQtyResumeStyle),
                   radius: 15,
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.blueAccent,
                 ),
                 SizedBox(width: 10),
                 Padding(
@@ -100,7 +99,7 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('${widget.nome}'),
-                      Text('Botijão de 13 kg'),
+                      Text('13kg Cylinder'),
                     ],
                   ),
                 ),
@@ -111,13 +110,11 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
             children: <Widget>[
               Text.rich(
                 TextSpan(
-                  text: 'R\$',
+                  text: 'CA\$',
                   style: TextStyle(fontSize: 14),
                   children: <TextSpan>[
                     TextSpan(text: ' '),
-                    TextSpan(
-                        text: '${(qty * widget.preco).toStringAsFixed(2)}',
-                        style: StylesRevenda.detailTotalResumeStyle),
+                    TextSpan(text: '${(qty * widget.preco).toStringAsFixed(2)}', style: StylesRevenda.detailTotalResumeStyle),
                   ],
                 ),
               )
@@ -187,20 +184,22 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        width: 100,
-                        padding: EdgeInsets.all(8),
-                        color: Colors.black,
-                        child: Text(
-                          '${widget.tipo}',
-                          style: TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center,
+                      Material(
+                        elevation: 10,
+                        child: Container(
+                          width: 100,
+                          padding: EdgeInsets.all(8),
+                          color: Colors.blueGrey,
+                          child: Text(
+                            '${widget.tipo}',
+                            style: TextStyle(color: Colors.white),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 5),
-                        child: Text('${widget.tempoMedio} min',
-                            style: StylesRevenda.detailTempoCardStyle),
+                        child: Text('${widget.tempoMedio} min', style: StylesRevenda.detailTempoCardStyle),
                       ),
                     ],
                   ),
@@ -217,18 +216,16 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('Butijão de 13kg'),
+                        Text('13kg Cylinder'),
                         SizedBox(height: 5),
                         Text('${widget.nome}'),
                         SizedBox(height: 5),
                         Text.rich(
                           TextSpan(
-                            text: 'R\$',
+                            text: 'CA\$',
                             style: TextStyle(fontSize: 14),
                             children: <TextSpan>[
-                              TextSpan(
-                                  text: ' ${widget.preco.toStringAsFixed(2)}',
-                                  style: StylesRevenda.detailTotalCardStyle),
+                              TextSpan(text: ' ${widget.preco.toStringAsFixed(2)}', style: StylesRevenda.detailTotalCardStyle),
                             ],
                           ),
                         ),
@@ -245,8 +242,7 @@ class RevendaDetailPageState extends State<RevendaDetailPage> {
                           ),
                           onPressed: qty != 0 ? decrement : null,
                         ),
-                        backgroundColor:
-                            qty != 0 ? Colors.grey[500] : Colors.transparent,
+                        backgroundColor: qty != 0 ? Colors.grey[500] : Colors.transparent,
                       ),
                       Container(
                         child: Stack(

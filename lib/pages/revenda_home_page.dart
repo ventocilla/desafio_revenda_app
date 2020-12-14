@@ -11,7 +11,6 @@ class RevendaHomePage extends StatefulWidget {
 }
 
 class _RevendaHomePageState extends State<RevendaHomePage> {
-
   List<dynamic> revendas;
 
   void getData() {
@@ -31,7 +30,7 @@ class _RevendaHomePageState extends State<RevendaHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Escolha uma Revenda'),
+        title: Text('Chosse a reseller'),
         actions: <Widget>[
           DropdownButton(
               icon: Align(
@@ -48,12 +47,9 @@ class _RevendaHomePageState extends State<RevendaHomePage> {
                 ),
               ),
               items: [
-                DropdownMenuItem(
-                    child: Text('Melhor avaliação'), onTap: () {}, value: 1),
-                DropdownMenuItem(
-                    child: Text('Mais rapido'), onTap: () {}, value: 2),
-                DropdownMenuItem(
-                    child: Text('Mais barato'), onTap: () {}, value: 3),
+                DropdownMenuItem(child: Text('Melhor avaliação'), onTap: () {}, value: 1),
+                DropdownMenuItem(child: Text('Mais rapido'), onTap: () {}, value: 2),
+                DropdownMenuItem(child: Text('Mais barato'), onTap: () {}, value: 3),
               ],
               onChanged: (value) {
                 print(value);

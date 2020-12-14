@@ -14,13 +14,13 @@ class StepsPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           StepCircle(
-            title: 'Comprar',
+            title: 'Purchase',
             innerColor: Colors.blue,
             borderColor: Colors.grey[300],
             borderWidth: 10,
           ),
-          StepCircle(title: 'Pagamento'),
-          LastStepCircle(title: 'Confirmação'),
+          StepCircle(title: 'Payment'),
+          LastStepCircle(title: 'Confirmation'),
         ],
       ),
     );
